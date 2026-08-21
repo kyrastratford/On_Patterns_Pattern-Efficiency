@@ -1,0 +1,359 @@
+:root {
+  --primary-color: #000000;
+  --bg-main: #f8fafc;
+  --card-bg: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: rgba(180, 180, 180, 0.3);
+  --accent-light: #e2fbaf;
+  --accent-dark: #15803d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* --- FOLDER CONTAINER --- */
+.folder-container {
+  display: flex;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  min-height: 700px;
+}
+
+/* --- SIDEBAR --- */
+.folder-sidebar {
+  width: 360px;
+  background: #000000;
+  padding: 2.5rem 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0 1.75rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tab-button {
+  width: 100%;
+  text-align: left;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #000000;
+  border: none;
+  border-left: 6px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.step-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.step-text {
+  line-height: 1.25;
+}
+
+.tab-button:hover:not(.active) {
+  background: #111111;
+  color: #ffffff;
+}
+
+.tab-button.active {
+  background: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  border-left: 6px solid var(--accent-light);
+}
+
+.tab-button.active .step-number {
+  background: var(--accent-light);
+  color: #000000;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.folder-content {
+  flex: 1;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.content-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.example-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.example-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.example-btn.active {
+  background: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+}
+
+/* --- COMPARISON BOARD --- */
+.comparison-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.comparison-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.part-col,
+.nesting-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.part-name-tag {
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pattern-label-sub {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.arrow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  text-align: center;
+}
+
+.change-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+  max-width: 140px;
+}
+
+.arrow-icon {
+  font-size: 1.75rem;
+  color: #15803d;
+  font-weight: bold;
+}
+
+/* IMAGE FRAMES */
+.image-frame {
+  width: 100%;
+  height: 180px;
+  background: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.nesting-frame {
+  height: 220px;
+}
+
+.img-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  gap: 0.5rem;
+  background: #000000;
+}
+
+.img-placeholder svg {
+  width: 32px;
+  height: 32px;
+}
+
+.img-placeholder span {
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.metrics-overlay {
+  position: absolute;
+  top: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.metrics-overlay.left {
+  right: 10px;
+}
+
+.metrics-overlay.right {
+  right: 10px;
+}
+
+/* --- SUMMARY CARD --- */
+.metrics-summary-card {
+  margin-top: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.metric-label {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.metric-value {
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.metric-value.highlight {
+  color: var(--accent-dark);
+}
+
+.metric-divider {
+  color: var(--border-color);
+  font-size: 1.25rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .folder-container {
+    flex-direction: column;
+  }
+
+  .folder-sidebar {
+    width: 100%;
+  }
+
+  .comparison-row {
+    flex-direction: column;
+  }
+
+  .metrics-summary-card {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .metric-divider {
+    display: none;
+  }
+}
